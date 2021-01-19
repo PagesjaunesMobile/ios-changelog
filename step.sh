@@ -20,6 +20,6 @@ lastLBranchTag=$(git log --pretty=format:'%h' -n 1)
 changelog="$(git log --pretty=format:"%s" $lastLMasterTag...$lastLBranchTag)"
 
 #Save changelog in environment variable
-envman add --key CHANGELOG_TEXT --value $changelog
+envman add --key CHANGELOG_TEXT --value "${changelog}"
 
 echo "*** Generate Changelog finish ***"
