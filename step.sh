@@ -15,6 +15,7 @@ fi
 #Look for from branch commit
 git checkout ${BITRISE_GIT_BRANCH}
 lastLBranchTag=$(git log --pretty=format:'%h' -n 1)
+echo "BITRISE_GIT_BRANCH ${BITRISE_GIT_BRANCH}"
 
 #Generate changelog
 changelog="$(git log --pretty=format:"%s" $lastLMasterTag...$lastLBranchTag)"
