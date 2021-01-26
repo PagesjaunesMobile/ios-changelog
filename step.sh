@@ -17,9 +17,12 @@ echo "*** Generate Changelog start ***"
 #lastLBranchTag=$(git log --pretty=format:'%h' -n 1)
 #echo "BITRISE_GIT_BRANCH ${BITRISE_GIT_BRANCH}"
 
+git checkout $lastLMasterTag
+lastLBranchTag=$(git rev-list --parents HEAD | head -1| cut -d' ' -f2)
+
 #git checkout HEAD
 #Generate changelog
-changelog="$(git log --pretty=format:"%s" $lastLMasterTag...HEAD)"
+changelog="$(git log --pretty=format:"%s" $lastLBranchTag...lastLMasterTag)"
 
 #Save changelog in environment variable
 envman add --key CHANGELOG_TEXT --value "${changelog}"
