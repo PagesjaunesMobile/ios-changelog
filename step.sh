@@ -17,7 +17,7 @@ echo "*** Generate Changelog start ***"
 #lastLBranchTag=$(git log --pretty=format:'%h' -n 1)
 #echo "BITRISE_GIT_BRANCH ${BITRISE_GIT_BRANCH}"
 
-git checkout $lastLMasterTag
+#git checkout $lastLMasterTag
 lastLBranchTag=$(git rev-list --parents HEAD | head -1| cut -d' ' -f2)
 
 #git checkout HEAD
